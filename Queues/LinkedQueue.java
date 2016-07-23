@@ -8,23 +8,25 @@ length=0;
 front=rear=null;
 }
 
-public void enqueue(int data)
+public void enQueue(int data)
 {
 ListNode node=new ListNode(data);
 if(isEmpty())
 	{
+	//System.out.println("First Check");
 		front =node;
+	
 	}
 else
 	{
-	rear.setNext(node);
-	rear=node;
+		rear.setNext(node);
+	}
 	rear=node;
 	length++;	
-	}
+	
 }
 
-public int dequeue() throws Exception
+public int deQueue() throws Exception
 {
 	if(isEmpty())
 	{
