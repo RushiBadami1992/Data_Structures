@@ -48,6 +48,31 @@ public class BinaryTraversal
 			}
 		}		
 	}
+	public void reverseLevelOrder(BinaryTreeNode root)
+	{
+	 	Queue<BinaryTreeNode> queue=new LinkedList<BinaryTreeNode>();
+		Stack<BinaryTreeNode> reverseList=new Stack<BinaryTreeNode>();
+
+		queue.offer(root);
+		while(!queue.isEmpty())
+		{
+			BinaryTreeNode node=queue.poll();
+			//System.out.print(node.getData()+ " ");
+			if(node.getLeft()!=null)
+			{
+				queue.offer(node.getLeft());
+			}
+			if(node.getRight()!=null)
+			{
+				queue.offer(node.getRight());
+			}
+			reverseList.push(node);
+		}
+		while(!reverseList.isEmpty())
+		{
+			System.out.print(reverseList.pop().getData()+" ");				
+		}	
+	}
 	public static void main(String args[])
 	{
 		BinaryTreeNode root = new BinaryTreeNode(1);
@@ -75,6 +100,8 @@ public class BinaryTraversal
 		traversal.postOrder(root);
 		System.out.println();
 		traversal.levelOrderTraversal(root);	
+		System.out.println();
+		traversal.reverseLevelOrder(root);
 		System.out.println();
 	}
 }
