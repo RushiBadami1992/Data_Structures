@@ -1,3 +1,4 @@
+import java.util.*;
 public class BinaryTraversal
 {
 
@@ -28,6 +29,25 @@ public class BinaryTraversal
 			System.out.print(root.getData()+" ");					
 		}
 	}
+
+	public void levelOrderTraversal(BinaryTreeNode root)
+	{
+		Queue<BinaryTreeNode> queue=new LinkedList<BinaryTreeNode>();
+		queue.offer(root);
+		while(!queue.isEmpty())
+		{
+			BinaryTreeNode node=queue.poll();
+			System.out.print(node.getData()+ " ");
+			if(node.getLeft()!=null)
+			{
+				queue.offer(node.getLeft());
+			}
+			if(node.getRight()!=null)
+			{
+				queue.offer(node.getRight());
+			}
+		}		
+	}
 	public static void main(String args[])
 	{
 		BinaryTreeNode root = new BinaryTreeNode(1);
@@ -54,6 +74,7 @@ public class BinaryTraversal
 		System.out.println();
 		traversal.postOrder(root);
 		System.out.println();
-
+		traversal.levelOrderTraversal(root);	
+		System.out.println();
 	}
 }
