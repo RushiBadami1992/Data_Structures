@@ -56,6 +56,28 @@ public class MaxBinaryTree{
 		int rightCount=root.right == null ? 0:findSize(root.right);
 		return 1+leftCount+rightCount;
 	}
+
+	public int maxHeight(BinaryTreeNode root)
+	{
+		if(root == null)
+		{
+			return 0;
+		}
+		int leftDepth=0,rightDepth=0;
+		if(root.left !=null)
+			leftDepth=maxHeight(root.left);
+		if(root.right !=null)
+			rightDepth=maxHeight(root.right);
+		if(leftDepth>rightDepth)
+		{
+			return leftDepth+1;
+		}
+		else
+		{
+			return rightDepth+1;
+		}
+		
+	}
 	public static void main(String args[])
 	{
 		BinaryTreeNode root = new BinaryTreeNode(1);
@@ -77,5 +99,6 @@ public class MaxBinaryTree{
 		System.out.println(binaryTree.findMax(root));
 		binaryTree.findMaxNonRecursive(root);
 		System.out.println(binaryTree.findSize(root));
+		System.out.println(binaryTree.maxHeight(root));
 	}
 }
