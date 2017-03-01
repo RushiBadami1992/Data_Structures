@@ -58,13 +58,14 @@ public class BinaryTraversal
 		{
 			BinaryTreeNode node=queue.poll();
 			//System.out.print(node.getData()+ " ");
-			if(node.getLeft()!=null)
-			{
-				queue.offer(node.getLeft());
-			}
+			
 			if(node.getRight()!=null)
 			{
 				queue.offer(node.getRight());
+			}
+			if(node.getLeft()!=null)
+			{
+				queue.offer(node.getLeft());
 			}
 			reverseList.push(node);
 		}
